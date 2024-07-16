@@ -44,11 +44,21 @@ greates_increase_date = dates[changes.index(greatest_increase)]
 greatest_decrease = min(changes) if changes else 0
 greatest_decrease_date = dates[changes.index(greatest_decrease)]
 
-#results
-print("Financial Analysis")
-print("-------------------")
-print(f"Total Months: {total_months}")
-print(f"Total: ${net_total}")
-print(f"Average Change: ${average_change:.2f}")
-print(f"Greatest increase in Profits: {greates_increase_date} (${greatest_increase})")
-print(f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease})")
+#resume of the results
+analysis_summary = (
+    "Financial Analysis \n"
+    "------------------- \n"
+    f"Total Months: {total_months} \n"
+    f"Total: ${net_total} \n"
+    f"Average Change: ${average_change:.2f} \n"
+    f"Greatest increase in Profits: {greates_increase_date} (${greatest_increase}) \n"
+    f"Greatest Decrease in Profits: {greatest_decrease_date} (${greatest_decrease}) \n"
+)
+
+print(analysis_summary)
+
+# export the results to the analisis folder
+output_path = os.path.join("analisis", "financial_analysis.txt")
+with open(output_path, mode="w") as output_file:
+    output_file.write(analysis_summary)
+
